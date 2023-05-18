@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: examplekube
+  labels:
+    app: examplekube
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: examplekube
+  template:
+    metadata:
+      labels:
+        app: examplekube
+    spec:
+      containers:
+        - name: examplekube
+          image: examplekube:1.0
+          ports:
+            - containerPort: 3000
